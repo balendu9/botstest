@@ -66,3 +66,13 @@ async def save_data(request: Request):
 
     return {"status": "success", "wallet": wallet}
 
+
+@app.get("/view_data", response_class=HTMLResponse)
+async def view_data():
+    try:
+        with open("verified.json", "r") as f:
+            verified = json.load(f)
+    except:
+        verified = {}
+
+    return HTMLResponse(content=f"<pre>{json.dumps(verified, indent=2)}</pre>")
