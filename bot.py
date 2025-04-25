@@ -23,7 +23,7 @@ async def register(update: Update, context: ContextTypes.DEFAULT_TYPE):
         json.dump(registered, f)
 
     # Verification link
-    link = f"https://wallet-verifier.onrender.com/verify?wallet={wallet}&user={username}"
+    link = f"https://wallet-bot-iy79.onrender.com/verify?wallet={wallet}&user={username}"
     await update.message.reply_text(f"Click to verify your wallet: {link}")
 
 TOKEN = os.getenv("BOT_TOKEN")
