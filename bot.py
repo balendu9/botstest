@@ -1,4 +1,5 @@
 import json
+import os
 from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
 
@@ -25,7 +26,8 @@ async def register(update: Update, context: ContextTypes.DEFAULT_TYPE):
     link = f"https://wallet-verifier.onrender.com/verify?wallet={wallet}&user={username}"
     await update.message.reply_text(f"Click to verify your wallet: {link}")
 
-app = ApplicationBuilder().token("7648743572:AAGHvI_-EjsLyuqDiSQEdg0tkdx-BGbf2cg").build()
+TOKEN = os.getenv("BOT_TOKEN")
+app = ApplicationBuilder().token(TOKEN).build()
 app.add_handler(CommandHandler("start", start))
 app.add_handler(CommandHandler("register", register))
 
