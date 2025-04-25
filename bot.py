@@ -22,7 +22,7 @@ async def register(update: Update, context: ContextTypes.DEFAULT_TYPE):
         json.dump(registered, f)
 
     # Verification link
-    link = f"http://localhost:8000/verify?wallet={wallet}&user={username}"
+    link = f"https://wallet-verifier.onrender.com/verify?wallet={wallet}&user={username}"
     await update.message.reply_text(f"Click to verify your wallet: {link}")
 
 app = ApplicationBuilder().token("7648743572:AAGHvI_-EjsLyuqDiSQEdg0tkdx-BGbf2cg").build()
